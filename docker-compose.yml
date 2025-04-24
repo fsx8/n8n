@@ -1,0 +1,16 @@
+services:
+  n8n:
+    build:
+      context: .
+      dockerfile: docker/images/n8n-custom/Dockerfile
+    container_name: n8n-custom
+    ports:
+      - '5678:5678'
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=false
+      - N8N_RUNNERS_ENABLED=true
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
+      - WEBHOOK_URL=https://087a-2a0c-5a85-4304-8400-c82b-182b-da99-c276.ngrok-free.app/
+    volumes:
+      - /Users/fschon/.n8n:/home/node/.n8n
+      # - ./dist:/Users/node/.n8n/custom/node_modules/n8n-nodes-etsy-api
