@@ -83,7 +83,7 @@ export class ClientOAuth2Token {
 			grant_type: 'refresh_token',
 		};
 
-		if (options.authentication === 'body') {
+		if (options.authentication === 'body' || options.accessTokenUri.includes('etsy')) {
 			body.client_id = clientId;
 			body.client_secret = clientSecret;
 		} else {

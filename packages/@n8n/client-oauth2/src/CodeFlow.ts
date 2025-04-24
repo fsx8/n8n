@@ -101,7 +101,7 @@ export class CodeFlow {
 		// `client_id`: REQUIRED, if the client is not authenticating with the
 		// authorization server as described in Section 3.2.1.
 		// Reference: https://tools.ietf.org/html/rfc6749#section-3.2.1
-		if (options.clientSecret) {
+		if (options.clientSecret && !options.accessTokenUri.includes('etsy')) {
 			headers.Authorization = auth(options.clientId, options.clientSecret);
 		} else {
 			body.client_id = options.clientId;
